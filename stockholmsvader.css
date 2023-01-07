@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Century Gothic;
+}
+
+header{
+    background-image:linear-gradient(#ab058a8f,#4c0082c8) ,url(img/digital-digital-art-artwork-fantasy-art-drawing-hd-wallpaper-preview.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+ul{
+    list-style-type: none;
+    float: right;
+    margin: 25px;
+}
+
+ul li{
+    display: inline-block;
+}
+
+ul li a{
+    text-decoration: none;
+    color: white;
+    padding: 5px 20px;
+    border: 1px solid white transparent;
+}
+
+ul li a:hover{
+    background-color: white;
+    color: black;
+}
+
+ul li.active a{
+    background-color: white;
+    color: black;
+}
+
+.logo img{
+    float: left;
+    width: 150px;
+    height: auto;
+}
+
+.main{
+    max-width: 1200px;
+    margin: auto;
+}
+
+.title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.title h1{
+    color: white;
+    font-size: 50px;
+
+}
+
+#title2{
+    position: absolute;
+    color: white;
+    font-size: 15px;
+    left: 25%;
+}
+
+.messi{
+    background-image: linear-gradient(#ab058a8f,#4c0082c8), url(img/stockholm.jpg);
+    height: 600px;
+    background-size: cover;
+    background-position: center;
+}
+
+#ogaboga
+{
+    margin-left: 30%;
+    margin-top: 5%;
+    width: 500px;
+    background-color: rgba(149, 0, 255, 0.345);
+    color: white;
+}
+#taufik1{
+    float:left;
+}
+#taufik2{
+    float:right;
+    width: 30%;
+}
+#taufik3{
+    float:left;
+    margin-top:81%;
+    margin-left:-25%;
+    width: 20%;
+}
+#taufik4{
+    float: right;
+    margin-top:81%;
+    margin-right: -10%;
+    width: 25%;
+}
+h2{
+    display: inline;
+}
+#taufik5{
+    width:1%;
+    margin-left:30%;
+}
+#bild{
+    height:20vh ;
+    margin-top: 10%;
+    margin-left: 22%;
+    text-align: center;
+}
+#iconImg{
+    width: 10vw;
+
+}
+#lolol1{
+    display: inline;
+}
+#temp{
+    display: inline;
+}
+#tempss{
+    text-align: center;
+}
+
+.container-fluid{
+    padding: 10px;
+    position: absolute;
+    top: 100%;
+}

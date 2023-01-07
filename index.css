@@ -1,0 +1,75 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Century Gothic;
+}
+
+header{
+    background-image:linear-gradient(rgba(0, 83, 156, 0.658),rgba(238, 164, 127, 0.658)) ,url(img/1245781.webp);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+ul{
+    list-style-type: none;
+    float: right;
+    margin: 25px;
+}
+
+ul li{
+    display: inline-block;
+}
+
+ul li a{
+    text-decoration: none;
+    color: white;
+    padding: 5px 20px;
+    border: 1px solid white transparent;
+}
+
+ul li a:hover{
+    background-color: white;
+    color: black;
+}
+
+ul li.active a{
+    background-color: white;
+    color: black;
+}
+
+.logo img{
+    float: left;
+    width: 150px;
+    height: auto;
+    color: white;
+}
+
+.main{
+    max-width: 1200px;
+    margin: auto;
+}
+
+.title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    color: white;
+
+}
+
+.title h1{
+    font-size: 30px;
+}
+
+#title2{
+    position: absolute;
+    top: 55%;
+    left: 20%;
+    color: white;
+    font-size: 15px;
+}
+
+
+

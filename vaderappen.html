@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taufiks|Väder Applikation</title>
+            <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="vaderappen.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="main">
+            <div class="logo">
+                <a href="https://www.weloventig.se/"><img src="img/ntilogo.png" alt="en bild på nti ikonen"></a>
+            </div>
+            <ul>
+                <li><a href="index.html">Hemma</a></li>
+                <li><a href="stockholmsvader.html">Stockholms Väder</a></li>
+                <li><a href="vaderappen.html">Väder Appen</a></li>
+                <li><a href="spel.html">Spel</a></li>
+                <li><a href="film.html">Film</a></li>
+            </ul>
+        </div>
+        
+        <div class="title">
+            <h1>Väder Appen</h1>
+            <h6 id="title2">Här väljer du själv vilken stad som du vill se väder data ifrån</h6>
+        </div>
+    </header>
+
+    <div class="andrabakgrund">
+    <div class="container-fluid">
+        <section class="main">
+          
+          <section class="inputs">
+            <input class="text" type="text" placeholder="Skriv in en stad..." id="stadinput">
+            <input type="submit" value="Visa Data" id="läggtill">
+          </section>
+    
+         
+          <section class="display">
+            <div class="wrapper">
+                <h2 id="cityoutput"></h2>
+                <p id="description"></p>
+                <p id="temp"></p>
+                <p id="wind"></p>
+              </div>
+                </section>
+                </section>
+              </div>
+              
+    
+    <script>
+    //Javascript Funktionen
+    var inputval = document.querySelector('#stadinput')
+    var btn = document.querySelector('#läggtill');
+    var city = document.querySelector('#cityoutput')
+    var descrip = document.querySelector('#description')
+    var temp = document.querySelector('#temp')
+    var wind = document.querySelector('#wind')
+    
+     
+    apik = "9677e48190ee061d4a7a2a102ab1aa91"
+    
+    
+    
+    function convertion(val){
+        return (val - 273).toFixed(2)
+    }
+    
+    
+        btn.addEventListener('click', function(){
+    
+    
+    
+            fetch('https://api.openweathermap.org/data/2.5/weather?q='+inputval.value+'&appid='+apik)
+            .then(res => res.json())
+    
+    
+    
+            .then(data => {
+    
+    
+    
+                var nameval = data['name']
+                var descrip = data['weather']['0']['description']
+                var tempature = data['main']['temp']
+                var wndspd = data['wind']['speed']
+    
+                city.innerHTML=`<span>${nameval}<span>s väder`
+                temp.innerHTML = `Temperature: <span>${ convertion(tempature)} C</span>`
+                description.innerHTML = `Sky Conditions: <span>${descrip}<span>`
+                wind.innerHTML = `Wind Speed: <span>${wndspd} km/h<span>`
+    
+            })
+    
+            .catch(err => alert('Du skrev fel!!'))
+        })
+    
+        </script>
+        </div>
+
+</body>
+
+</html>

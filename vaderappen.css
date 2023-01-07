@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Century Gothic;
+}
+
+header{
+    background-image:linear-gradient(#ADD8E6c8, #00008bc8) ,url(img/LINK_big_storm_clouds_over_city_800x450px.jpg);
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+ul{
+    list-style-type: none;
+    float: right;
+    margin: 25px;
+}
+
+ul li{
+    display: inline-block;
+}
+
+ul li a{
+    text-decoration: none;
+    color: white;
+    padding: 5px 20px;
+    border: 1px solid white transparent;
+}
+
+ul li a:hover{
+    background-color: white;
+    color: black;
+}
+
+ul li.active a{
+    background-color: white;
+    color: black;
+}
+
+.logo img{
+    float: left;
+    width: 150px;
+    height: auto;
+}
+
+.main{
+    max-width: 1200px;
+    margin: auto;
+}
+
+.title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.title h1{
+    color: white;
+    font-size: 50px;
+
+}
+
+#title2{
+  position: absolute;
+  color: white;
+  font-size: 15px;
+}
+
+.andrabakgrund{
+    background-image: linear-gradient(#ADD8E6c8,#00008bc8), url(img/2b3pdfrzjzed6zbb.jpg);
+    height: 600px;
+    background-size: cover;
+    background-position: center;
+}
+
+.container-fluid{
+    width: 410px;
+    padding: 10px;
+    position: absolute;
+    top: 105%;
+    left: 35%;
+  }
+    
+  .inputs {
+    padding-top: 50px;
+    text-align: center;
+    justify-content: center;
+    background: transparent;
+  }
+    
+  .inputs input[type="text"] {
+    height: 3.5rem;
+    width: 20rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    padding: 10px;
+    background-color: transparent;
+    border: 2px solid white;
+    margin-right:4px ;
+  }
+
+  .text{
+    color: white;
+  }
+    
+  .inputs input[type="submit"] {
+    height: 3.2rem;
+    width: 6.5rem;
+    background: transparent;
+    color: white;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    border: 2px solid white;
+  }
+    
+  .display {
+    text-align: center;
+    width: 400px;
+    color: white;
+  }
+  
+  .wrapper {
+    margin: 0 9rem;
+    height: 45vh;
+    margin: 50px auto;
+  }
+    
+  .wrapper h2{
+    padding: 5px 0;
+    text-align: center;
+  }
