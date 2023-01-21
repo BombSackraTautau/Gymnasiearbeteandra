@@ -5,7 +5,7 @@
 }
 
 header{
-    background-image:linear-gradient(#ADD8E6c8, #00008bc8) ,url(img/SL_tunnelbana_Flickr_Photo-Craig-Flickr-980x653.jpg);
+    background-image:linear-gradient(#000428, #004e92) ,url(img/SL_tunnelbana_Flickr_Photo-Craig-Flickr-980x653.jpg);
     height: 100vh;
     background-size: cover;
     background-position: center;
