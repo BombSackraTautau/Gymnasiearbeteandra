@@ -39,74 +39,39 @@
     </header>
 
     <div class="andrabakgrund">
-    <div class="container-fluid">
-        <section class="main">
-          
-          <section class="inputs">
-            <input class="text" type="text" placeholder="Skriv in en stad..." id="stadinput">
-            <input type="submit" value="Visa Data" id="läggtill">
-          </section>
-    
-         
-          <section class="display">
-            <div class="wrapper">
-                <h2 id="cityoutput"></h2>
-                <p id="description"></p>
-                <p id="temp"></p>
-                <p id="wind"></p>
-              </div>
-                </section>
-                </section>
-              </div>
               
-    
+        <label id="origin">Origin:</label>
+        <input class="input-field" id="origin-input" type="text" placeholder="Enter origin">
+        <label id="destination">Destination:</label>
+        <input class="input-field" id="destination-input" type="text" placeholder="Enter destination">
+        <button class="show-data-btn" onclick="showData()">Show Data</button>
+
+        <div id="travel-data">
+            <h2>Travel Information</h2>
+            <p>Departure: <span id="departure-time"></span></p>
+            <p>Arrival: <span id="arrival-time"></span></p>
+            <p>Travel time: <span id="travel-time"></span></p>
+        </div>
+        
+        
     <script>
-    //Javascript Funktionen
-    var inputval = document.querySelector('#stadinput')
-    var btn = document.querySelector('#läggtill');
-    var city = document.querySelector('#cityoutput')
-    var descrip = document.querySelector('#description')
-    var temp = document.querySelector('#temp')
-    var wind = document.querySelector('#wind')
-    
-     
-    apik = "9677e48190ee061d4a7a2a102ab1aa91"
-    
-    
-    
-    function convertion(val){
-        return (val - 273).toFixed(2)
-    }
-    
-    
-        btn.addEventListener('click', function(){
-    
-    
-    
-            fetch('https://api.openweathermap.org/data/2.5/weather?q='+inputval.value+'&appid='+apik)
-            .then(res => res.json())
-    
-    
-    
-            .then(data => {
-    
-    
-    
-                var nameval = data['name']
-                var descrip = data['weather']['0']['description']
-                var tempature = data['main']['temp']
-                var wndspd = data['wind']['speed']
-    
-                city.innerHTML=`<span>${nameval}<span>s väder`
-                temp.innerHTML = `Temperature: <span>${ convertion(tempature)} C</span>`
-                description.innerHTML = `Sky Conditions: <span>${descrip}<span>`
-                wind.innerHTML = `Wind Speed: <span>${wndspd} km/h<span>`
-    
-            })
-    
-            .catch(err => alert('Du skrev fel!!'))
-        })
-    
+ 
+    function showData() {
+    // Get the values of the input fields
+    var origin = document.getElementById("origin-input").value;
+    var destination = document.getElementById("destination-input").value;
+
+    // Fetch the SL data for the specified destinations
+    fetch("https://api.sl.se/api2/TravelplannerV3/trip.json?key=8dcf193fa5a24edd9757bb70212f4bc4&originId=" + origin + "&destId=" + destination + "&searchForArrival=0")
+        .then(response => response.json())
+        .then(data => {
+            // Update the text content of the elements
+            document.getElementById("departure-time").textContent = data.Trip[0].LegList.Leg[0].Origin.time;
+            document.getElement
+
+                });
+        }
+
         </script>
         </div>
 

@@ -75,59 +75,37 @@ ul li.active a{
     background-position: center;
 }
 
-.container-fluid{
-    width: 410px;
-    padding: 10px;
-    position: absolute;
-    top: 105%;
-    left: 35%;
-  }
-    
-  .inputs {
-    padding-top: 50px;
-    text-align: center;
-    justify-content: center;
-    background: transparent;
-  }
-    
-  .inputs input[type="text"] {
-    height: 3.5rem;
-    width: 20rem;
-    font-weight: bold;
-    font-size: 1.1rem;
-    padding: 10px;
-    background-color: transparent;
-    border: 2px solid white;
-    margin-right:4px ;
-  }
+/* Styling for the input fields and button */
+.input-field {
+  margin: 20px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+.input-field:focus {
+  outline: none;
+}
+.show-data-btn {
+  margin: 20px;
+  padding: 10px 20px;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.show-data-btn:hover {
+  background-color: darkblue;
+}
 
-  .text{
-    color: white;
-  }
-    
-  .inputs input[type="submit"] {
-    height: 3.2rem;
-    width: 6.5rem;
-    background: transparent;
-    color: white;
-    font-size: 1.2rem;
-    margin-top: 20px;
-    border: 2px solid white;
-  }
-    
-  .display {
-    text-align: center;
-    width: 400px;
-    color: white;
-  }
-  
-  .wrapper {
-    margin: 0 9rem;
-    height: 45vh;
-    margin: 50px auto;
-  }
-    
-  .wrapper h2{
-    padding: 5px 0;
-    text-align: center;
-  }
+#travel-data {
+ color: white;
+}
+
+#origin {
+  color: white;
+}
+
+#destination {
+  color: white;
+}
