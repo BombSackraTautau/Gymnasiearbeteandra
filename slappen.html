@@ -41,9 +41,11 @@
     <div class="andrabakgrund">
               
         <label id="origin">Origin:</label>
-        <input class="input-field" id="origin-input" type="text" placeholder="Enter origin">
+        <input class="input-field" id="origin-input" type="text" placeholder="Enter origin" oninput="showExamples(this, 'origin')">
+        <div id="origin-examples"></div>
         <label id="destination">Destination:</label>
-        <input class="input-field" id="destination-input" type="text" placeholder="Enter destination">
+        <input class="input-field" id="destination-input" type="text" placeholder="Enter destination" oninput="showExamples(this, 'destination')">
+        <div id="destination-examples"></div>
         <button class="show-data-btn" onclick="showData()">Show Data</button>
 
         <div id="travel-data">
@@ -61,7 +63,7 @@
     var origin = document.getElementById("origin-input").value;
     var destination = document.getElementById("destination-input").value;
 
-    // Fetch the SL data for the specified destinations
+    // Fetch the SL data for the specified destinations //FIXA DIN APIIIIIIIIIIII
     fetch("https://api.sl.se/api2/TravelplannerV3/trip.json?key=8dcf193fa5a24edd9757bb70212f4bc4&originId=" + origin + "&destId=" + destination + "&searchForArrival=0")
         .then(response => response.json())
         .then(data => {
@@ -72,6 +74,25 @@
                 });
         }
 
+        function showExamples(input, type) {
+    // Get the value of the input field
+    var value = input.value;
+    // Fetch a list of valid places that match the user's input //FIXA API KEYYYYYYY
+    fetch("https://api.sl.se/api2/typeahead.json?key="+process.env.API_KEY+"&searchstring=" + value + "&stationsonly=true&maxresults=5")
+        .then(response => response.json())
+        .then(data => {
+            var places = data.ResponseData;
+            var examples = document.getElementById(type + "-examples");
+            examples.innerHTML = "";
+            for (var i = 0; i < places.length; i++) {
+                if (places[i].Name.toLowerCase().indexOf(value.toLowerCase()) !== -1) {
+                    var option = document.createElement("div");
+                    option.innerHTML = places[i].Name;
+                    examples.appendChild(option);
+                }
+            }
+        });
+    }
         </script>
         </div>
 
