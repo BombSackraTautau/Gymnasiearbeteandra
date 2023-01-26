@@ -12,7 +12,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="film.css">
+    <link rel="stylesheet" href="/static/film.css">
 </head>
 
 <body>
@@ -20,15 +20,15 @@
     <header>
         <div class="main">
             <div class="logo">
-                <a href="https://www.weloventig.se/"><img src="img/ntilogo.png" alt="en bild på nti ikonen"></a>
+                <a href="https://www.weloventig.se/"><img src='/static/img/ntilogo.png' alt="en bild på nti ikonen"></a>
             </div>
             <ul>
-                <li><a href="index.html">Hemma</a></li>
-                <li><a href="slappen.html">SL Appen</a></li>
-                <li><a href="stockholmsvader.html">Stockholms Väder</a></li>
-                <li><a href="vaderappen.html">Väder Appen</a></li>
-                <li><a href="spel.html">Spel</a></li>
-                <li><a href="film.html">Film</a></li>
+                <li><a href="{{ url_for('hemma') }}">Hemma</a></li>
+                <li><a href="{{ url_for('sl') }}">SL Appen</a></li>
+                <li><a href="{{ url_for('vader') }}">Stockholms Väder</a></li>
+                <li><a href="{{ url_for('vaderappen') }}">Väder Appen</a></li>
+                <li><a href="{{ url_for('spel') }}">Spel</a></li>
+                <li><a href="{{ url_for('film') }}">Film</a></li>
             </ul>
         </div>
         
@@ -40,9 +40,9 @@
 
     <div class="andrabakgrund">
         <div class="filmer">
-            <a href="https://fmovies.app/"> <img class="fmovies" src="img/FMovies_Logo.png" alt="fmovies.app"></a>
-            <a href="https://myflixer.to/"> <img class="myflixer" src="img/myflixer.png" alt="myflixer.to"></a>
-            <a href="https://yesmovies.ag/yes.html"> <img class="yesmovies" src="img/yesmovies.png" alt="yesmovies.ag"></a>
+            <a href="https://fmovies.app/"> <img class="fmovies" src="/static/img/FMovies_Logo.png" alt="fmovies.app"></a>
+            <a href="https://myflixer.to/"> <img class="myflixer" src="/static/img/myflixer.png" alt="myflixer.to"></a>
+            <a href="https://yesmovies.ag/yes.html"> <img class="yesmovies" src="/static/img/yesmovies.png" alt="yesmovies.ag"></a>
         </div>
     </div>
 

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taufiks|Väder Applikation</title>
+            <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/static/slappen.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="main">
+            <div class="logo">
+                <a href="https://www.weloventig.se/"><img src='/static/img/ntilogo.png' alt="en bild på nti ikonen"></a>
+            </div>
+            <ul>
+                <li><a href="{{ url_for('hemma') }}">Hemma</a></li>
+                <li><a href="{{ url_for('sl') }}">SL Appen</a></li>
+                <li><a href="{{ url_for('vader') }}">Stockholms Väder</a></li>
+                <li><a href="{{ url_for('vaderappen') }}">Väder Appen</a></li>
+                <li><a href="{{ url_for('spel') }}">Spel</a></li>
+                <li><a href="{{ url_for('film') }}">Film</a></li>
+            </ul>
+        </div>
+        
+        <div class="title">
+            <h1>SL Appen</h1>
+            <h6 id="title2">Här hittar du tidsavgånger runt Huddinge och Flemingsberg så att du inte missar din nästa buss eller tåg</h6>
+        </div>
+    </header>
+
+    <div class="andrabakgrund">
+              
+      {% for t in SLbuss %}
+      <div class="SL RoundedCornerMain"> 
+          {{t}}
+      </div>
+  {% endfor %}
+
+  {% for h in SLpendel %}
+      <div class="SL RoundedCornerMain"> 
+          {{h}}
+      </div>
+  {% endfor %}
+        
+        </div>
+    
+</body>
+
+</html>

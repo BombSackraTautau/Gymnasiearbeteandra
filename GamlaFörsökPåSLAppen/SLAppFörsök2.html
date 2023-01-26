@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SL Timetable App</title>
+  <style>
+    /* Add CSS for design and layout */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #0099cc;
+      color: white;
+      padding: 20px;
+    }
+    header h1 {
+      margin: 0;
+    }
+    form {
+      margin: 20px;
+    }
+    input[type="text"] {
+      margin-right: 10px;
+    }
+    button {
+      background-color: #0099cc;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+    th {
+      background-color: #0099cc;
+      color: white;
+    }
+    /* Add CSS for responsive design */
+    @media (max-width: 600px) {
+      form {
+        margin: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SL Timetable App</h1>
+  </header>
+  <form>
+    <label for="place">Enter place:</label>
+    <input type="text" id="place" name="place">
+    <button id="submitBtn">Submit</button>
+  </form>
+  <table id="timetable">
+    <thead>
+      <tr>
+        <th>Departure</th>
+        <th>Destination</th>
+        <th>Time</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+      <!-- Timetable data will be inserted here -->
+    </tbody>
+  </table>
+  <script>
+    // Add event listener to submit button
+    document.getElementById("submitBtn").addEventListener("click", function(e) {
+      e.preventDefault(); // prevent form submission
+      // Get value of input field
+      let place = document.getElementById("place").value;
+      // Use fetch method to get data from API
+      fetch("https://cors-anywhere.herokuapp.com/https://api.sl.se/api2/realtimedeparturesv4.json?key=ab7dd2b6d6e14a7f8d90468fdaa5c24c&siteid=" + place)
+
+        .then(response => response.json())
+        .then(data => {
+          // Get the table body element
+          let tableBody = document.getElementById("tableBody");
+          // Clear the table body
+          tableBody.innerHTML = "";
+          // Loop through the data and create table rows
+          data.ResponseData.Trains.forEach(train => {
+            let row = document.createElement("tr");
+            let departure = document.createElement("td");
+            let destination = document.createElement("td");
+            let time = document.createElement("td");
+            departure.innerHTML = train.GroupOfLine;
+destination.innerHTML = train.Destination;
+time.innerHTML = train.TimeTabledDateTime.substring(11,16);
+row.appendChild(departure);
+row.appendChild(destination);
+row.appendChild(time);
+tableBody.appendChild(row);
+});
+})
+.catch(error => {
+console.log(error);
+});
+});
+</script>
+
+</body>
+</html>

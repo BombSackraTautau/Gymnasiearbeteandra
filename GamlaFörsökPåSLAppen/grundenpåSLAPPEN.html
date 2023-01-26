@@ -1,0 +1,97 @@
+<html>
+  <head>
+    <title>SL App</title>
+    <style>
+      /* CSS styling for the website */
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+
+      h1 {
+    color: #0078bf;
+  }
+
+  form {
+    margin-top: 50px;
+    display: inline-block;
+  }
+
+  input[type="text"] {
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+  }
+
+  input[type="submit"] {
+    background-color: #0078bf;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #005580;
+  }
+
+  .example {
+    color: #777;
+    font-size: 12px;
+    margin-top: 10px;
+  }
+</style>
+
+
+</head>
+<body>
+  <h1>SL App</h1>
+
+  <form onsubmit="getDirections()">
+    <label for="from">From:</label>
+    <input type="text" id="from" placeholder="Enter starting location">
+    <div class="example">Example: T-Centralen</div>
+    
+    <label for="to">To:</label>
+    <input type="text" id="to" placeholder="Enter destination">
+    <div class="example">Example: Solna Centrum</div>
+    
+    <input type="submit" value="Get directions">
+  </form>
+  
+  <div id="result"></div>
+  
+  <script>
+    function getDirections(event) {
+  
+      //event.preventDefault();
+      
+      //var from = document.getElementById("from").value;
+      var to = document.getElementById("to").value;
+      let from = 9192;
+      // Fetch data
+      fetch("https://api.sl.se/api2/realtimedeparturesV4.json?key=ab7dd2b6d6e14a7f8d90468fdaa5c24c&siteid=" + from + "&timewindow=60")
+        .then(response => response.json())
+        .then(data => {
+
+          var resultDiv = document.createElement("div");
+  
+
+          var time = data.ResponseData.Trains[0].DisplayTime;
+          var travelPath = data.ResponseData.Trains[0].Destination;
+  
+          // Add the time and travel path to the result div
+          resultDiv.innerHTML = "Next departure: " + time + "<br>" + "Destination: " + travelPath;
+  
+          // Append the result div to the existing result element
+          document.getElementById("result").appendChild(resultDiv);
+        });
+    }
+  </script>
+  
+</body>
+</html>

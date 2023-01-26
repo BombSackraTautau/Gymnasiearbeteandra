@@ -70,42 +70,20 @@ ul li.active a{
 
 .andrabakgrund{
     background-image: linear-gradient(#004e92c8 ,#000428c8), url(img/SL.jpg);
-    height: 600px;
+    height: 750px;
     background-size: cover;
     background-position: center;
 }
 
-/* Styling for the input fields and button */
-.input-field {
-  margin: 20px;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-}
-.input-field:focus {
-  outline: none;
-}
-.show-data-btn {
-  margin: 20px;
-  padding: 10px 20px;
-  background-color: blue;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-.show-data-btn:hover {
-  background-color: darkblue;
-}
+.RoundedCornerMain {
+      color: white;
+      display: inline-block;
+      width: 32%;
+      font-size: 115%;
+      margin: 0.5%;
+      border: 2px solid rgb(255, 255, 255);
+      border-radius: 15px;
+      padding: 5px;
+      text-align: center;
+    }
 
-#travel-data {
- color: white;
-}
-
-#origin {
-  color: white;
-}
-
-#destination {
-  color: white;
-}
