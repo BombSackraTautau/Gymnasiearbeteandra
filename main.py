@@ -111,26 +111,32 @@ SLpendel = SLpendel
 @app.route('/sl/')
 def sl():
     return render_template('slappen.html', SLbuss=SLbuss, SLpendel=SLpendel)
+#url till slappen http://127.0.0.1:5500/sl/
 
 @app.route('/hemma/')
 def hemma():
     return render_template('index.html')
+#url till hemma hemsidan http://127.0.0.1:5500/hemma/
 
 @app.route('/vader/')
 def vader():
     return render_template('stockholmsvader.html')
-    
+#url till vader hemsidan http://127.0.0.1:5500/vader/
+
 @app.route('/vaderappen/')
 def vaderappen():
     return render_template('vaderappen.html')
+#url till vaderappen http://127.0.0.1:5500/vaderappen/
 
 @app.route('/spel/')
 def spel():
     return render_template('spel.html')
+#url till spel hemsidan http://127.0.0.1:5500/spel/
 
 @app.route('/film/')
 def film():
     return render_template('film.html')
+#url till film hemsidan http://127.0.0.1:5500/film/
 
 if __name__ == '__main__':
     app.run(debug=True, port=5500)
